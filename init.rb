@@ -4,9 +4,10 @@ class Heroku::Command::Wtf < Heroku::Command::Base
   # heroku wtf [message]
   # transmit your frustration into the ether.
   def index
-    user = "pvh"
-    wtf = "WTF!"
-    url = "https://heroku-wtf.herokuapp.com/wtf?user=#{user}&wtf=#{wtf}"
-    puts Excon.post(url)
+    user = Heroku::Auth.user
+    wtf = shift_argument
+    url = "https://heroku-wtf.herokuapp.com/wtf"
+    Excon.post(url, :body => "user=#{user}&wtf=#{wtf}")
+    puts "Venting... done"
   end
 end
