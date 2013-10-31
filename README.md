@@ -10,6 +10,10 @@ Sometimes, you just want to gripe.
 
 This posts your username and an optional single-argument "vent" to a small `heroku-wtf` service which @pvh monitors.
 
+# installation
+
+    $ heroku plugins:install http://github.com/pvh/heroku-wtf
+
 ## this is obviously not an official heroku project
 
 but i will read your gripes and may even be able to help from time to time.
