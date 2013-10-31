@@ -7,7 +7,8 @@ class Heroku::Command::Wtf < Heroku::Command::Base
     user = Heroku::Auth.user
     wtf = shift_argument
     url = "https://heroku-wtf.herokuapp.com/wtf"
+    print "Venting..."
     Excon.post(url, :body => "user=#{user}&wtf=#{wtf}")
-    puts "Venting... done"
+    puts " done"
   end
 end
