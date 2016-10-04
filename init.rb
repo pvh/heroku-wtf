@@ -5,7 +5,7 @@ class Heroku::Command::Wtf < Heroku::Command::Base
   # transmit your frustration into the ether.
   def index
     user = Heroku::Auth.user
-    wtf = shift_argument
+    wtf = ARGV.size > 2 ? ARGV.drop(1).join(" ") : shift_argument
     url = "https://heroku-wtf.herokuapp.com/wtf"
     print "Venting..."
     Excon.post(url, :body => "user=#{user}&wtf=#{wtf}")
